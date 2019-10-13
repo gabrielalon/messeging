@@ -1,0 +1,31 @@
+{
+  "name": "n3tt3ch/messaging",
+  "keywords": ["messaging", "command bus", "query bus", "event bus"],
+  "license": "MIT",
+  "authors": [{"name": "n3tt3ch", "email": "mrode@n3tt3ch.io"}],
+  "autoload": {
+    "psr-4": {
+      "N3tt3ch\\Messaging\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "N3tt3ch\\Messaging\\Test\\": "tests/"
+    }
+  },
+  "require": {
+    "php": ">=7.3",
+    "ext-json": "*",
+    "symfony/serializer": "*",
+    "symfony/dependency-injection": "^4.3",
+    "symfony/yaml": "^4.3",
+    "symfony/config": "^4.3"
+  },
+  "require-dev": {
+    "ramsey/uuid": "*",
+    "phpunit/phpunit": "*",
+    "squizlabs/php_codesniffer": "*",
+    "phpstan/phpstan": "*",
+    "friendsofphp/php-cs-fixer": "*"
+  }
+}

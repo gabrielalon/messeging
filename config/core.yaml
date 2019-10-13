@@ -1,0 +1,19 @@
+services:
+  N3tt3ch\Messaging\Event\EventSourcing\EventProjectionProvider:
+    arguments: '@service_container'
+
+  N3tt3ch\Messaging\Event\EventRouting\EventRouterFactory: ~
+
+  N3tt3ch\Messaging\Event\EventRouting\EventRouter:
+    factory: ['@N3tt3ch\Messaging\Event\EventRouting\EventRouterFactory', 'fromDirectory']
+    arguments:
+      path: 'config/events/'
+
+  N3tt3ch\Messaging\Event\EventTransporting\EventTransporterFactory: ~
+
+  N3tt3ch\Messaging\Event\EventTransporting\EventTransporter:
+    factory: ['@N3tt3ch\Messaging\Event\EventTransporting\EventTransporterFactory', 'createDefault']
+
+  N3tt3ch\Messaging\Event\EventBus:
+    arguments:
+      '@N3tt3ch\Messaging\Event\EventTransporting\EventTransporter'
