@@ -1,10 +1,12 @@
 <?php
 
-namespace N3tt3ch\Messaging\Snapshot\SnapshotStore;
+namespace N3ttech\Messaging\Snapshot\SnapshotStore;
 
 interface Serializer
 {
     /**
+     * @param mixed $data
+     *
      * @return string
      */
     public function serialize($data);

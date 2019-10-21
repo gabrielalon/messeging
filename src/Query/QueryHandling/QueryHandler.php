@@ -1,8 +1,8 @@
 <?php
 
-namespace N3tt3ch\Messaging\Query\QueryHandling;
+namespace N3ttech\Messaging\Query\QueryHandling;
 
-use N3tt3ch\Messaging\Message\Messaging\MessageHandler;
+use N3ttech\Messaging\Message\Messaging\MessageHandler;
 
 interface QueryHandler extends MessageHandler
 {

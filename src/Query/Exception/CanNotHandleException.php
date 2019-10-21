@@ -1,6 +1,6 @@
 <?php
 
-namespace N3tt3ch\Messaging\Query\Exception;
+namespace N3ttech\Messaging\Query\Exception;
 
 class CanNotHandleException extends \RuntimeException
 {

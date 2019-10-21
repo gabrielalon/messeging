@@ -1,28 +1,28 @@
 <?php
 
-namespace N3tt3ch\Messaging\Event;
+namespace N3ttech\Messaging\Event;
 
-use N3tt3ch\Messaging\Event\Event\Event;
-use N3tt3ch\Messaging\Message\Transporting\Transporter;
+use N3ttech\Messaging\Event\Event\Event;
+use N3ttech\Messaging\Message\Transporting\Transporter;
 
-class EventBus implements \N3tt3ch\Messaging\Event\EventSourcing\EventBus
+class EventBus implements \N3ttech\Messaging\Event\EventSourcing\EventBus
 {
-	/** @var Transporter */
-	private $transporter;
-	
-	/**
-	 * @param Transporter $transporter
-	 */
-	public function __construct(Transporter $transporter)
-	{
-		$this->transporter = $transporter;
-	}
-	
-	/**
-	 * @param Event $event
-	 */
-	public function dispatch(Event $event): void
-	{
-		$this->transporter->publish($event);
-	}
+    /** @var Transporter */
+    private $transporter;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function __construct(Transporter $transporter)
+    {
+        $this->transporter = $transporter;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function dispatch(Event $event): void
+    {
+        $this->transporter->publish($event);
+    }
 }

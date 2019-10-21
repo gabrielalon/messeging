@@ -1,6 +1,6 @@
 <?php
 
-namespace N3tt3ch\Messaging\Message\Domain;
+namespace N3ttech\Messaging\Message\Domain;
 
 interface Message
 {

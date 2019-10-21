@@ -1,6 +1,6 @@
 <?php
 
-namespace N3tt3ch\Messaging\Message\Domain;
+namespace N3ttech\Messaging\Message\Domain;
 
 abstract class DomainMessage implements Message
 {
@@ -15,16 +15,32 @@ abstract class DomainMessage implements Message
 
     /** @var array */
     protected $metadata = [];
-	
-	/**
-	 * @param array $payload
-	 */
+
+    /**
+     * {@inheritdoc}
+     */
+    public function messageName(): string
+    {
+        return $this->messageName;
+    }
+
+    /**
+     * @return array
+     */
+    public function metadata(): array
+    {
+        return $this->metadata;
+    }
+
+    /**
+     * @param array $payload
+     */
     abstract protected function setPayload(array $payload): void;
 
     protected function init(): void
     {
         if (null === $this->uuid) {
-            $this->uuid = (string) \Ramsey\Uuid\Uuid::uuid4();
+            $this->uuid = \Ramsey\Uuid\Uuid::uuid4()->toString();
         }
 
         if (null === $this->messageName) {
@@ -34,29 +50,5 @@ abstract class DomainMessage implements Message
         if (null === $this->recordedOn) {
             $this->recordedOn = new \DateTime('now');
         }
-    }
-	
-	/**
-	 * @return string
-	 */
-    public function messageName(): string
-    {
-        return $this->messageName;
-    }
-	
-	/**
-	 * @return array
-	 */
-    public function metadata(): array
-    {
-        return $this->metadata;
-    }
-	
-	/**
-	 * @return string
-	 */
-    public function metadataJSON(): string
-    {
-        return json_encode($this->metadata());
     }
 }

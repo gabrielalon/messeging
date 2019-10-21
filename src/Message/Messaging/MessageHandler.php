@@ -1,13 +1,13 @@
 <?php
 
-namespace N3tt3ch\Messaging\Message\Messaging;
+namespace N3ttech\Messaging\Message\Messaging;
 
-use N3tt3ch\Messaging\Message\Domain\Message;
+use N3ttech\Messaging\Message\Domain\Message;
 
 interface MessageHandler
 {
-	/**
-	 * @param Message $message
-	 */
+    /**
+     * @param Message $message
+     */
     public function run(Message $message): void;
 }

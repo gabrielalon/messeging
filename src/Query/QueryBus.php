@@ -1,27 +1,27 @@
 <?php
 
-namespace N3tt3ch\Messaging\Query;
+namespace N3ttech\Messaging\Query;
 
-use N3tt3ch\Messaging\Message\Transporting\Transporter;
+use N3ttech\Messaging\Message\Transporting\Transporter;
 
-class QueryBus implements \N3tt3ch\Messaging\Query\QueryHandling\QueryBus
+class QueryBus implements \N3ttech\Messaging\Query\QueryHandling\QueryBus
 {
-	/** @var Transporter */
-	private $transporter;
-	
-	/**
-	 * @param Transporter $transporter
-	 */
-	public function __construct(Transporter $transporter)
-	{
-		$this->transporter = $transporter;
-	}
-	
-	/**
-	 * @param Query\Query $query
-	 */
-	public function dispatch(Query\Query $query): void
-	{
-		$this->transporter->publish($query);
-	}
+    /** @var Transporter */
+    private $transporter;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function __construct(Transporter $transporter)
+    {
+        $this->transporter = $transporter;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function dispatch(Query\Query $query): void
+    {
+        $this->transporter->publish($query);
+    }
 }

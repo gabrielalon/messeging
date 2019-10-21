@@ -1,6 +1,6 @@
 <?php
 
-namespace N3tt3ch\Messaging\Event\EventStore\Stream;
+namespace N3ttech\Messaging\Event\EventStore\Stream;
 
 class EventStream
 {
@@ -19,6 +19,13 @@ class EventStream
     /** @var array */
     private $metadata;
 
+    /**
+     * @param string $aggregateId
+     * @param int    $aggregateVersion
+     * @param string $eventName
+     * @param array  $payload
+     * @param array  $metadata
+     */
     public function __construct(
         string $aggregateId,
         int $aggregateVersion,

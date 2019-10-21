@@ -1,12 +1,12 @@
 <?php
 
-namespace N3tt3ch\Messaging\Event\EventStore;
+namespace N3ttech\Messaging\Event\EventStore;
 
-use N3tt3ch\Messaging\Aggregate\AggregateId;
-use N3tt3ch\Messaging\Aggregate\EventBridge\AggregateChanged;
-use N3tt3ch\Messaging\Event\Event\Event;
-use N3tt3ch\Messaging\Event\EventStore\BusBridge\EventPublisher;
-use N3tt3ch\Messaging\Event\Persist\EventStreamRepository;
+use N3ttech\Messaging\Aggregate\AggregateId;
+use N3ttech\Messaging\Aggregate\EventBridge\AggregateChanged;
+use N3ttech\Messaging\Event\Event\Event;
+use N3ttech\Messaging\Event\EventStore\BusBridge\EventPublisher;
+use N3ttech\Messaging\Event\Persist\EventStreamRepository;
 
 class EventStorage
 {
@@ -18,28 +18,29 @@ class EventStorage
 
     /** @var Event */
     private $tmpLastReleasedEvent;
-	
-	/**
-	 * @param EventStreamRepository $streamRepository
-	 */
+
+    /**
+     * @param EventStreamRepository $streamRepository
+     */
     public function __construct(EventStreamRepository $streamRepository)
     {
         $this->streamRepository = $streamRepository;
     }
-	
-	/**
-	 * @param EventPublisher $eventPublisher
-	 */
+
+    /**
+     * @param EventPublisher $eventPublisher
+     */
     public function setEventPublisher(EventPublisher $eventPublisher): void
     {
         $this->eventPublisher = $eventPublisher;
     }
-	
-	/**
-	 * @param Event $event
-	 * @return EventStorage
-	 */
-    public function release(Event $event): EventStorage
+
+    /**
+     * @param Event $event
+     *
+     * @return EventStorage
+     */
+    public function release(Event $event): self
     {
         $this->eventPublisher->release($event);
 
@@ -54,18 +55,19 @@ class EventStorage
             $this->streamRepository->save($this->tmpLastReleasedEvent);
         }
     }
-	
-	/**
-	 * @param AggregateId $aggregateId
-	 * @param int $lastVersion
-	 * @return \ArrayIterator
-	 */
+
+    /**
+     * @param AggregateId $aggregateId
+     * @param int         $lastVersion
+     *
+     * @return \ArrayIterator
+     */
     public function load(AggregateId $aggregateId, int $lastVersion)
     {
         $iterator = new \ArrayIterator();
 
         foreach ($this->streamRepository->load($aggregateId, $lastVersion)->getArrayCopy() as $eventStream) {
-        	/** @var AggregateChanged $event */
+            /** @var AggregateChanged $event */
             $event = $eventStream->getEventName();
             $iterator->append($event::fromEventStream($eventStream));
         }

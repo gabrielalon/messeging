@@ -1,6 +1,6 @@
 <?php
 
-namespace N3tt3ch\Messaging\Snapshot\SnapshotStore;
+namespace N3ttech\Messaging\Snapshot\SnapshotStore;
 
 final class CallbackSerializer implements Serializer
 {
@@ -11,8 +11,8 @@ final class CallbackSerializer implements Serializer
     private $unserializeCallback = 'unserialize';
 
     /**
-     * @param callable|null $serializeCallback
-     * @param callable|null $unserializeCallback
+     * @param null|callable $serializeCallback
+     * @param null|callable $unserializeCallback
      */
     public function __construct($serializeCallback, $unserializeCallback)
     {
@@ -23,7 +23,7 @@ final class CallbackSerializer implements Serializer
     }
 
     /**
-     * @param object|array $data
+     * @param array|object $data
      *
      * @return string
      */
@@ -35,7 +35,7 @@ final class CallbackSerializer implements Serializer
     /**
      * @param string $serialized
      *
-     * @return object|array
+     * @return array|object
      */
     public function unserialize($serialized)
     {

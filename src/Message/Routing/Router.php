@@ -1,6 +1,7 @@
 <?php
 
-namespace N3tt3ch\Messaging\Message\Routing;
+namespace N3ttech\Messaging\Message\Routing;
 
 interface Router
-{}
+{
+}

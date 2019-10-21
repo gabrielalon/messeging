@@ -1,29 +1,15 @@
 <?php
 
-namespace N3tt3ch\Messaging\Event\EventSourcing;
+namespace N3ttech\Messaging\Event\EventSourcing;
 
-use N3tt3ch\Messaging\Message\EventSourcing\EventProjector;
-use Psr\Container\ContainerInterface;
+use N3ttech\Messaging\Message\EventSourcing\EventProjector;
 
-final class EventProjectionProvider
+interface EventProjectionProvider
 {
-	/** @var ContainerInterface */
-	protected $container;
-	
-	/**
-	 * @param ContainerInterface $container
-	 */
-	public function __construct(ContainerInterface $container)
-	{
-		$this->container = $container;
-	}
-	
-	/**
-	 * @param string $projectionName
-	 * @return EventProjector
-	 */
-	public function retrieve(string $projectionName): EventProjector
-	{
-		return $this->container->get($projectionName);
-	}
+    /**
+     * @param string $projectionName
+     *
+     * @return EventProjector
+     */
+    public function retrieve(string $projectionName): EventProjector;
 }

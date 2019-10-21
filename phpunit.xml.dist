@@ -4,7 +4,7 @@
 		 colors="true"
 		 verbose="true">
 	<testsuites>
-		<testsuite name="RGATests">
+		<testsuite name="N3ttechTest">
 			<directory suffix="Test.php">./tests</directory>
 		</testsuite>
 	</testsuites>

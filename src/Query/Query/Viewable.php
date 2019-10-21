@@ -1,6 +1,6 @@
 <?php
 
-namespace N3tt3ch\Messaging\Query\Query;
+namespace N3ttech\Messaging\Query\Query;
 
 interface Viewable
 {

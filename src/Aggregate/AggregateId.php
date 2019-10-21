@@ -1,11 +1,11 @@
 <?php
 
-namespace N3tt3ch\Messaging\Aggregate;
+namespace N3ttech\Messaging\Aggregate;
 
 interface AggregateId
 {
-	/**
-	 * @return string
-	 */
-	public function toString(): string;
+    /**
+     * @return string
+     */
+    public function toString(): string;
 }

@@ -1,13 +1,13 @@
 <?php
 
-namespace N3tt3ch\Messaging\Message\Messaging;
+namespace N3ttech\Messaging\Message\Messaging;
 
-use N3tt3ch\Messaging\Message\Transporting\Transporter;
+use N3ttech\Messaging\Message\Transporting\Transporter;
 
 interface MessageBus
 {
-	/**
-	 * @param Transporter $transporter
-	 */
+    /**
+     * @param Transporter $transporter
+     */
     public function __construct(Transporter $transporter);
 }

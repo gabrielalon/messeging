@@ -1,36 +1,36 @@
 <?php
 
-namespace N3tt3ch\Messaging\Aggregate;
+namespace N3ttech\Messaging\Aggregate;
 
-use N3tt3ch\Messaging\Aggregate\EventBridge\AggregateChanged;
+use N3ttech\Messaging\Aggregate\EventBridge\AggregateChanged;
 
 abstract class AggregateRoot
 {
     /** @var int */
     protected $version = 0;
-    
+
     /** @var AggregateId */
     protected $aggregateId;
 
     /** @var AggregateChanged[] */
     protected $recordedEvents = [];
-	
-	/**
-	 * @return string
-	 */
-	protected function aggregateId(): string
-	{
-		return $this->aggregateId->toString();
-	}
-	
-	/**
-	 * @param AggregateId $aggregateId
-	 */
-	public function setAggregateId(AggregateId $aggregateId): void
-	{
-		$this->aggregateId = $aggregateId;
-	}
-	
+
+    /**
+     * @param AggregateId $aggregateId
+     */
+    public function setAggregateId(AggregateId $aggregateId): void
+    {
+        $this->aggregateId = $aggregateId;
+    }
+
+    /**
+     * @return string
+     */
+    protected function aggregateId(): string
+    {
+        return $this->aggregateId->toString();
+    }
+
     /**
      * @return AggregateChanged[]
      */
@@ -42,10 +42,10 @@ abstract class AggregateRoot
 
         return $pendingEvents;
     }
-	
-	/**
-	 * @param AggregateChanged $event
-	 */
+
+    /**
+     * @param AggregateChanged $event
+     */
     protected function recordThat(AggregateChanged $event): void
     {
         ++$this->version;
@@ -56,7 +56,8 @@ abstract class AggregateRoot
     }
 
     /**
-	 * @param \Iterator $historyEvents
+     * @param \Iterator $historyEvents
+     *
      * @return AggregateRoot
      */
     protected static function reconstituteFromHistory(\Iterator $historyEvents): self
@@ -66,10 +67,10 @@ abstract class AggregateRoot
 
         return $instance;
     }
-	
-	/**
-	 * @param \Iterator $historyEvents
-	 */
+
+    /**
+     * @param \Iterator $historyEvents
+     */
     protected function replay(\Iterator $historyEvents): void
     {
         foreach ($historyEvents as $pastEvent) {
@@ -79,10 +80,10 @@ abstract class AggregateRoot
             $this->apply($pastEvent);
         }
     }
-	
-	/**
-	 * @param AggregateChanged $event
-	 */
+
+    /**
+     * @param AggregateChanged $event
+     */
     protected function apply(AggregateChanged $event): void
     {
         $event->populate($this);

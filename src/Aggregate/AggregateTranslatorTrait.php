@@ -1,6 +1,6 @@
 <?php
 
-namespace N3tt3ch\Messaging\Aggregate;
+namespace N3ttech\Messaging\Aggregate;
 
 trait AggregateTranslatorTrait
 {
