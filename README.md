@@ -1,4 +1,4 @@
-##Library for handling CQRS and ES
+#Library for handling CQRS and ES
 
 1. Define event bus
 
