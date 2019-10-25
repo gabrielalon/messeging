@@ -30,6 +30,9 @@ abstract class AggregateChanged extends DomainMessage implements Event
     }
 
     /**
+     * @param string $aggregateId
+     * @param array  $payload
+     *
      * @return AggregateChanged
      */
     public static function occur(string $aggregateId, array $payload = []): self
@@ -38,6 +41,8 @@ abstract class AggregateChanged extends DomainMessage implements Event
     }
 
     /**
+     * @param EventStream $stream
+     *
      * @return AggregateChanged
      */
     public static function fromEventStream(EventStream $stream): self
@@ -80,7 +85,7 @@ abstract class AggregateChanged extends DomainMessage implements Event
     /**
      * @param int $version
      *
-     * @return $this
+     * @return AggregateChanged
      */
     public function withVersion(int $version): self
     {
