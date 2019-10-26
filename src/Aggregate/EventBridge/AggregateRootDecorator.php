@@ -2,8 +2,8 @@
 
 namespace N3ttech\Messaging\Aggregate\EventBridge;
 
-use N3ttech\Messaging\Aggregate\AggregateId;
 use N3ttech\Messaging\Aggregate\AggregateRoot;
+use N3ttech\Valuing\Identity\AggregateId;
 
 class AggregateRootDecorator extends AggregateRoot
 {

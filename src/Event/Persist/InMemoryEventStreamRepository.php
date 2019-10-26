@@ -2,11 +2,11 @@
 
 namespace N3ttech\Messaging\Event\Persist;
 
-use N3ttech\Messaging\Aggregate\AggregateId;
 use N3ttech\Messaging\Aggregate\EventBridge\AggregateChanged;
 use N3ttech\Messaging\Event\Event\Event;
 use N3ttech\Messaging\Event\EventStore\Stream\EventStream;
 use N3ttech\Messaging\Event\EventStore\Stream\EventStreamCollection;
+use N3ttech\Valuing\Identity\AggregateId;
 
 class InMemoryEventStreamRepository implements EventStreamRepository
 {

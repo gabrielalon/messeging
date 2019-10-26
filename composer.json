@@ -19,7 +19,8 @@
     "php": ">=7.3",
     "ramsey/uuid": "^3.8",
     "psr/container": "^1.0",
-    "n3ttech/checking": "^1.1"
+    "n3ttech/checking": "^1.1",
+    "n3ttech/valuing": "^1.1"
   },
   "require-dev": {
     "phpunit/phpunit": "^8.4",

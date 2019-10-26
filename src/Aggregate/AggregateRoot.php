@@ -3,6 +3,7 @@
 namespace N3ttech\Messaging\Aggregate;
 
 use N3ttech\Messaging\Aggregate\EventBridge\AggregateChanged;
+use N3ttech\Valuing\Identity\AggregateId;
 
 abstract class AggregateRoot
 {

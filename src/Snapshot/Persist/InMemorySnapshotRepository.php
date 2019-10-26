@@ -4,6 +4,7 @@ namespace N3ttech\Messaging\Snapshot\Persist;
 
 use N3ttech\Messaging\Aggregate;
 use N3ttech\Messaging\Snapshot\Snapshot;
+use N3ttech\Valuing\Identity\AggregateId;
 
 class InMemorySnapshotRepository implements SnapshotRepository
 {
@@ -27,7 +28,7 @@ class InMemorySnapshotRepository implements SnapshotRepository
     /**
      * {@inheritdoc}
      */
-    public function get(Aggregate\AggregateType $aggregateType, Aggregate\AggregateId $aggregateId): Snapshot\Snapshot
+    public function get(Aggregate\AggregateType $aggregateType, AggregateId $aggregateId): Snapshot\Snapshot
     {
         if (false === isset($this->snapshots[$aggregateType->getAggregateType()][$aggregateId->toString()])) {
             throw new \RuntimeException('Snapshot not found for aggregate: '.$aggregateId->toString());

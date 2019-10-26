@@ -5,6 +5,7 @@ namespace N3ttech\Messaging\Aggregate\Persist;
 use N3ttech\Messaging\Aggregate;
 use N3ttech\Messaging\Event\EventStore\EventStorage;
 use N3ttech\Messaging\Snapshot\SnapshotStore\SnapshotStorage;
+use N3ttech\Valuing\Identity\AggregateId;
 
 abstract class AggregateRepository
 {
@@ -54,11 +55,11 @@ abstract class AggregateRepository
     }
 
     /**
-     * @param Aggregate\AggregateId $aggregateId
+     * @param AggregateId $aggregateId
      *
      * @return Aggregate\AggregateRoot
      */
-    protected function findAggregateRoot(Aggregate\AggregateId $aggregateId): Aggregate\AggregateRoot
+    protected function findAggregateRoot(AggregateId $aggregateId): Aggregate\AggregateRoot
     {
         $snapshot = $this->snapshotStorage->get($this->aggregateType, $aggregateId);
 
@@ -81,10 +82,10 @@ abstract class AggregateRepository
     }
 
     /**
-     * @param \ArrayIterator        $events
-     * @param Aggregate\AggregateId $aggregateId
+     * @param \ArrayIterator $events
+     * @param AggregateId    $aggregateId
      */
-    protected function completeEmptyEventsWithAggregateRoot(\ArrayIterator $events, Aggregate\AggregateId $aggregateId): void
+    protected function completeEmptyEventsWithAggregateRoot(\ArrayIterator $events, AggregateId $aggregateId): void
     {
         if (0 === $events->count()) {
             $events->append(Aggregate\EventBridge\EmptyAggregateChanged::fromEventStreamData($aggregateId, [], []));

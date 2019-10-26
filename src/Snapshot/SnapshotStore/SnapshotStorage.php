@@ -5,6 +5,7 @@ namespace N3ttech\Messaging\Snapshot\SnapshotStore;
 use N3ttech\Messaging\Aggregate;
 use N3ttech\Messaging\Snapshot\Persist\SnapshotRepository;
 use N3ttech\Messaging\Snapshot\Snapshot\Snapshot;
+use N3ttech\Valuing\Identity\AggregateId;
 
 class SnapshotStorage
 {
@@ -37,11 +38,11 @@ class SnapshotStorage
 
     /**
      * @param Aggregate\AggregateType $aggregateType
-     * @param Aggregate\AggregateId   $aggregateId
+     * @param AggregateId             $aggregateId
      *
      * @return Snapshot
      */
-    public function get(Aggregate\AggregateType $aggregateType, Aggregate\AggregateId $aggregateId)
+    public function get(Aggregate\AggregateType $aggregateType, AggregateId $aggregateId)
     {
         return $this->snapshotRepository->get($aggregateType, $aggregateId);
     }

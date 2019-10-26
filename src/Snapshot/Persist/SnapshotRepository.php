@@ -2,9 +2,9 @@
 
 namespace N3ttech\Messaging\Snapshot\Persist;
 
-use N3ttech\Messaging\Aggregate\AggregateId;
 use N3ttech\Messaging\Aggregate\AggregateType;
 use N3ttech\Messaging\Snapshot\Snapshot;
+use N3ttech\Valuing\Identity\AggregateId;
 
 interface SnapshotRepository
 {

@@ -2,11 +2,11 @@
 
 namespace N3ttech\Messaging\Event\EventStore;
 
-use N3ttech\Messaging\Aggregate\AggregateId;
 use N3ttech\Messaging\Aggregate\EventBridge\AggregateChanged;
 use N3ttech\Messaging\Event\Event\Event;
 use N3ttech\Messaging\Event\EventStore\BusBridge\EventPublisher;
 use N3ttech\Messaging\Event\Persist\EventStreamRepository;
+use N3ttech\Valuing\Identity\AggregateId;
 
 class EventStorage
 {
