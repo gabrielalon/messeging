@@ -13,6 +13,8 @@ final class EventOnPrefixNamingStrategy implements NamingStrategy
      */
     public function retrieveName(string $eventName): string
     {
-        return self::PREFIX_METHOD_CALL.$eventName;
+        $reflectionClass = new \ReflectionClass($eventName);
+
+        return self::PREFIX_METHOD_CALL.$reflectionClass->getName();
     }
 }

@@ -6,15 +6,16 @@ class EventRouterFactory
 {
     /**
      * @param string $path
+     * @param string $pattern
      *
      * @return EventRouter
      */
-    public function fromDirectory(string $path): EventRouter
+    public function fromDirectory(string $path, string $pattern = '*.php'): EventRouter
     {
         $map = [];
         $pathPattern = rtrim($path, \DIRECTORY_SEPARATOR).\DIRECTORY_SEPARATOR;
 
-        $iterator = new \GlobIterator($pathPattern);
+        $iterator = new \GlobIterator($pathPattern.$pattern);
         $iterator->rewind();
         while (true === $iterator->valid()) {
             /** @var string[] $tmp */

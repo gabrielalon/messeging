@@ -34,6 +34,6 @@ class InMemorySnapshotRepository implements SnapshotRepository
             throw new \RuntimeException('Snapshot not found for aggregate: '.$aggregateId->toString());
         }
 
-        return $this->snapshots[$aggregateType->getAggregateType()][$aggregateId];
+        return $this->snapshots[$aggregateType->getAggregateType()][$aggregateId->toString()];
     }
 }

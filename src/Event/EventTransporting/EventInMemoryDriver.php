@@ -66,8 +66,8 @@ final class EventInMemoryDriver implements Driver
         foreach ($this->router->map($event->messageName()) as $projectorName) {
             $projector = $this->projectionProvider->retrieve($projectorName);
 
-            $reflection = new \ReflectionMethod($projectorName, $methodName);
-            $reflection->invoke($projector, $methodName, $event);
+            $reflection = new \ReflectionMethod($projector, $methodName);
+            $reflection->invoke($projector, $event);
         }
 
         return true;
