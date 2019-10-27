@@ -15,6 +15,6 @@ final class EventOnPrefixNamingStrategy implements NamingStrategy
     {
         $reflectionClass = new \ReflectionClass($eventName);
 
-        return self::PREFIX_METHOD_CALL.$reflectionClass->getName();
+        return self::PREFIX_METHOD_CALL.$reflectionClass->getShortName();
     }
 }
