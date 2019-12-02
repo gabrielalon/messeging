@@ -91,10 +91,7 @@ final class EventInMemoryDriver implements Driver
     private function retrieve(string $key): Message
     {
         if (false === isset($this->events[$key])) {
-            throw new \InvalidArgumentException(sprintf(
-                'Event %s does not exists in memory!',
-                $key
-            ));
+            throw new \InvalidArgumentException(sprintf('Event %s does not exists in memory!', $key));
         }
 
         return $this->events[$key];

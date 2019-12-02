@@ -31,7 +31,7 @@ class Snapshot
     }
 
     /**
-     * @return null|AggregateRoot
+     * @return AggregateRoot|null
      */
     public function getAggregateRoot(): ?AggregateRoot
     {

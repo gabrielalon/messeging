@@ -1,5 +1,5 @@
 {
-  "name": "n3ttech/messaging",
+  "name": "n3ttech/messeging",
   "type": "library",
   "description": "CQRS + ES for php",
   "keywords": ["messaging", "command bus", "query bus", "event bus"],

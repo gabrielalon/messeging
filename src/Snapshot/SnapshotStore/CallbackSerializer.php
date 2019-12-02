@@ -11,8 +11,8 @@ final class CallbackSerializer implements Serializer
     private $unserializeCallback = 'unserialize';
 
     /**
-     * @param null|callable $serializeCallback
-     * @param null|callable $unserializeCallback
+     * @param callable|null $serializeCallback
+     * @param callable|null $unserializeCallback
      */
     public function __construct($serializeCallback, $unserializeCallback)
     {

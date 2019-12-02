@@ -69,10 +69,7 @@ final class CommandInMemoryDriver implements Driver
     private function retrieve(string $key): Message
     {
         if (false === isset($this->commands[$key])) {
-            throw new \InvalidArgumentException(sprintf(
-                'Command %s does not exists in memory!',
-                $key
-            ));
+            throw new \InvalidArgumentException(sprintf('Command %s does not exists in memory!', $key));
         }
 
         return $this->commands[$key];

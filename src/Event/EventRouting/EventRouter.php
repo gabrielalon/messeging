@@ -21,10 +21,7 @@ final class EventRouter implements \N3ttech\Messaging\Message\Routing\EventRoute
     public function map(string $eventName): array
     {
         if (false === isset($this->map[$eventName])) {
-            throw new \InvalidArgumentException(sprintf(
-                'Given event name %s is not registered!',
-                $eventName
-            ));
+            throw new \InvalidArgumentException(sprintf('Given event name %s is not registered!', $eventName));
         }
 
         return $this->map[$eventName];

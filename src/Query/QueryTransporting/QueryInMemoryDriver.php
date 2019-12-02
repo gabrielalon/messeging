@@ -69,10 +69,7 @@ final class QueryInMemoryDriver implements Driver
     private function retrieve(string $key): Message
     {
         if (false === isset($this->queries[$key])) {
-            throw new \InvalidArgumentException(sprintf(
-                'Query %s does not exists in memory!',
-                $key
-            ));
+            throw new \InvalidArgumentException(sprintf('Query %s does not exists in memory!', $key));
         }
 
         return $this->queries[$key];
