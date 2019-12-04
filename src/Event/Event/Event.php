@@ -20,4 +20,9 @@ interface Event extends Message
      * @return int
      */
     public function version(): int;
+
+    /**
+     * @return \DateTime
+     */
+    public function recordedOn(): \DateTime;
 }

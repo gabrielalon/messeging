@@ -51,4 +51,12 @@ abstract class DomainMessage implements Message
             $this->recordedOn = new \DateTime('now');
         }
     }
+
+    /**
+     * @return \DateTime
+     */
+    public function recordedOn(): \DateTime
+    {
+        return $this->recordedOn;
+    }
 }
