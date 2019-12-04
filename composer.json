@@ -17,6 +17,7 @@
   },
   "require": {
     "php": ">=7.3",
+    "ext-json": "*",
     "ramsey/uuid": "^3.8",
     "psr/container": "^1.0",
     "n3ttech/valuing": "^1.1"
