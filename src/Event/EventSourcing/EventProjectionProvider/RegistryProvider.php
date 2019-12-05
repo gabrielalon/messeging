@@ -11,11 +11,11 @@ class RegistryProvider implements EventProjectionProvider
     private $projectors = [];
 
     /**
-     * @param string         $projectorName
      * @param EventProjector $projector
      */
-    public function register(string $projectorName, EventProjector $projector): void
+    public function register(EventProjector $projector): void
     {
+        $projectorName = get_class($projector);
         $this->projectors[$projectorName] = $projector;
     }
 

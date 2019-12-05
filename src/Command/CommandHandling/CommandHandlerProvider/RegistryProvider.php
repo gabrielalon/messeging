@@ -11,11 +11,11 @@ class RegistryProvider implements CommandHandlerProvider
     private $commandHandlers = [];
 
     /**
-     * @param string         $commandHandlerName
      * @param CommandHandler $commandHandler
      */
-    public function register(string $commandHandlerName, CommandHandler $commandHandler): void
+    public function register(CommandHandler $commandHandler): void
     {
+        $commandHandlerName = get_class($commandHandler);
         $this->commandHandlers[$commandHandlerName] = $commandHandler;
     }
 

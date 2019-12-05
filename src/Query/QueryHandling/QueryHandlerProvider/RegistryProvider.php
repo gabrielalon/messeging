@@ -11,11 +11,11 @@ class RegistryProvider implements QueryHandlerProvider
     private $queryHandlers = [];
 
     /**
-     * @param string       $queryHandlerName
      * @param QueryHandler $queryHandler
      */
-    public function register(string $queryHandlerName, QueryHandler $queryHandler): void
+    public function register(QueryHandler $queryHandler): void
     {
+        $queryHandlerName = get_class($queryHandler);
         $this->queryHandlers[$queryHandlerName] = $queryHandler;
     }
 
