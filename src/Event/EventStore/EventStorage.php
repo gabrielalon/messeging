@@ -22,7 +22,7 @@ class EventStorage
     /**
      * @param EventStreamRepository $streamRepository
      */
-    public function __construct(EventStreamRepository $streamRepository)
+    public function setStreamRepository(EventStreamRepository $streamRepository)
     {
         $this->streamRepository = $streamRepository;
     }

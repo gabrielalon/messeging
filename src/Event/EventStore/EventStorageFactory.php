@@ -26,7 +26,8 @@ class EventStorageFactory
      */
     public function create(EventBus $bus): EventStorage
     {
-        $eventStorage = new EventStorage($this->streamRepository);
+        $eventStorage = new EventStorage();
+        $eventStorage->setStreamRepository($this->streamRepository);
 
         $eventPublisher = new EventPublisher($bus);
         $eventPublisher->attachToEventStorage($eventStorage);

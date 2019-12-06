@@ -8,11 +8,15 @@ final class EventRouter implements \N3ttech\Messaging\Message\Routing\EventRoute
     private $map = [];
 
     /**
-     * @param string[][] $map
+     * @param array $map
+     * @return EventRouter
      */
-    public function __construct(array $map)
+    public static function fromArray(array $map): EventRouter
     {
-        $this->map = $map;
+        $router = new static();
+        $router->map = $map;
+
+        return $router;
     }
 
     /**

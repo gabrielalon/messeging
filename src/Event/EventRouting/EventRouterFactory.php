@@ -35,6 +35,6 @@ class EventRouterFactory
      */
     public function fromArray(array $map): EventRouter
     {
-        return new EventRouter($map);
+        return EventRouter::fromArray($map);
     }
 }
